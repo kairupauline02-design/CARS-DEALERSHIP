@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Purchases - Car Hub Nairobi</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    header {
+      background: #34495e;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 30px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #2c3e50;
+      margin-top: 30px;
+    }
+    .purchase-card {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .purchase-card img {
+      width: 120px;
+      border-radius: 5px;
+    }
+    .status-bar {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+    .status-bar a {
+      flex: 1;
+      text-align: center;
+      padding: 8px;
+      border-radius: 5px;
+      background: #ecf0f1;
+      text-decoration: none;
+      color: #2c3e50;
+      margin: 0 5px;
+    }
+    .status-bar a.active {
+      background: #27ae60;
+      color: white;
+    }
+    .invoice, .documents, .support, .feedback {
+      margin-top: 20px;
+      padding: 15px;
+      background: #f4f6f7;
+      border-radius: 8px;
+    }
+    .discount-banner {
+      background: #e74c3c;
+      color: white;
+      padding: 15px;
+      border-radius: 8px;
+      text-align: center;
+      margin: 30px 0;
+      font-weight: bold;
+    }
+    .feedback textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    .feedback button {
+      margin-top: 10px;
+      background: #2980b9;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .feedback .success-message {
+      color: green;
+      margin-top: 10px;
+      display: none;
+    }
+    .cta {
+      text-align: center;
+      margin-top: 40px;
+    }
+    .cta a {
+      background: #27ae60;
+      color: white;
+      padding: 12px 25px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+<nav>
+ <header>
+      <a href="Cars.html">Cars</a>
+      <a href="Inventory.html">Inventory</a>
+      <a href="About Us.html">About Us</a>
+      <a href="Contact Us.html">Contact Us</a>
+      <a href="Purchases.html">Purchases</a>
+   </header>
+</nav>
+<header>
+  <h1>My Purchases - Car Hub Nairobi</h1>
+  <p>Welcome back! Track and manage your vehicle purchases here.</p>
+</header>
+
+<div class="container">
+
+  <h2>🧾 Purchase Summary</h2>
+  <div class="purchase-card">
+    <img src="toyota axio.jpg" alt="Toyota Axio">
+    <div>
+      <strong>Toyota Axio 2020</strong><br>
+      Purchase Date: Oct 15, 2025<br>
+      Price: KES 1,450,000<br>
+      Status: <span style="color: green;">In Transit</span>
+    </div>
+  </div>
+
+  <h2>📦 Order Tracking</h2>
+  <div class="status-bar">
+    <a href="order-placed.html" class="active">Order Placed</a>
+    <a href="payment-confirmed.html" class="active">Payment Confirmed</a>
+    <a href="inspection.html" class="active">Inspection</a>
+    <a href="shipping.html">Shipping</a>
+    <a href="delivery.html">Delivered</a>
+  </div>
+
+  <div class="invoice">
+    <h3>💳 Invoice & Payment</h3>
+    <p>Invoice #: CHN-20251015-AXIO</p>
+    <p>Payment Method: M-Pesa</p>
+    <p>Amount Paid: KES 1,000,000</p>
+    <p>Balance: KES 450,000</p>
+    <a href="invoice.pdf" download>Download Invoice (PDF)</a>
+  </div>
+
+  <div class="discount-banner">
+    🎉 You saved 15% on this Toyota purchase!
+  </div>
+
+  <div class="documents">
+    <h3>📄 Vehicle Documents</h3>
+    <ul>
+      <li><a href="#">Logbook (Pending)</a></li>
+      <li><a href="#">Insurance (Uploaded)</a></li>
+      <li><a href="#">Inspection Report</a></li>
+    </ul>
+  </div>
+
+  <div class="support">
+    <h3>📞 Customer Support</h3>
+    <p>Need help? Reach us via:</p>
+    <ul>
+      <li><a href="https://wa.me/254103264033" target="_blank">WhatsApp</a></li>
+      <li><a href="mailto:support@carhub.co.ke">Email: support@carhub.co.ke</a></li>
+      <li><a href="#">FAQs</a></li>
+    </ul>
+  </div>
+
+  <div class="feedback">
+    <h3>⭐ Rate Your Experience</h3>
+    <label for="rating">Rating:</label>
+    <select id="rating">
+      <option>5 - Excellent</option>
+      <option>4 - Good</option>
+      <option>3 - Average</option>
+      <option>2 - Poor</option>
+      <option>1 - Terrible</option>
+    </select>
+    <textarea id="comment" placeholder="Leave a comment..."></textarea>
+    <button onclick="submitFeedback()">Submit Feedback</button>
+    <div class="success-message" id="successMessage">✅ Feedback submitted successfully!</div>
+  </div>
+
+  <div class="cta">
+    <p>Looking for another ride?</p>
+    <a href="#">Browse Vehicles</a>
+  </div>
+
+</div>
+
+<script>
+  function submitFeedback() {
+    const comment = document.getElementById('comment').value;
+    const rating = document.getElementById('rating').value;
+    if (comment.trim() !== "") {
+      document.getElementById('successMessage').style.display = 'block';
+    }
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Car Inventory</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: grey;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 30px;
+    }
+
+    .filters {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    select {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    .car-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .car-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      overflow: hidden;
+      padding: 15px;
+      transition: transform 0.3s ease;
+    }
+
+    .car-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .slideshow {
+      position: relative;
+      height: 200px;
+      overflow: hidden;
+      border-radius: 12px;
+    }
+
+    .slideshow img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: none;
+      border-radius: 12px;
+    }
+
+    .slideshow img.active {
+      display: block;
+    }
+
+    .specs {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .price {
+      font-weight: bold;
+      color: #007BFF;
+      margin-top: 8px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<nav>
+ <header>
+      <a href="Cars.html">Cars</a>
+      <a href="Inventory.html">Inventory</a>
+      <a href="About Us.html">About Us</a>
+      <a href="Contact Us.html">Contact Us</a>
+      <a href="Purchases.html">Purchases</a>
+   </header>
+</nav>
+<body>
+
+<h1>Car Inventory</h1>
+
+<div class="filters">
+<select id="brandFilter">
+  <option value="">All Brands</option>
+  <option value="Corolla">Corolla</option>
+  <option value="BMW">BMW</option>
+  <option value="Tesla">Tesla</option>
+  <option value="Audi">Audi</option>
+  <option value="Mercedes-Benz">Mercedes-Benz</option>
+  <option value="Ford">Ford</option>
+   <option value="Jeep">Jeep</option>
+   <option value="Markx">MarkX</option>
+    <option value="Crown">Crown</option>
+     <option value="GLE">GLE</option>
+  
+</select>
+  <select id="fuelFilter">
+    <option value="">All Fuel Types</option>
+    <option value="Petrol">Petrol</option>
+    <option value="Diesel">Diesel</option>
+    <option value="Electric">Electric</option>
+  </select>
+</div>
+
+<div class="car-list" id="carList"></div>
+
+<script>
+ const cars = [
+  {
+    brand: "Corolla",
+    fuel: "Petrol",
+    price: "$22,000",
+    specs: "Corolla 2022, 1.8L, Automatic",
+    images: ["corolla1.jpg", "corolla2.jpg", "corolla3.jpg"]
+  },
+  {
+    brand: "BMW",
+    fuel: "Diesel",
+    price: "$48,000",
+    specs: "BMW X5 2023, 3.0L, AWD",
+    images: ["bmw1.jpg", "bmw2.jpg", "bmw3.jpg"]
+  },
+  {
+    brand: "Tesla",
+    fuel: "Electric",
+    price: "$55,000",
+    specs: "Tesla Model 3 2023, Dual Motor",
+    images: ["tesla1.jpg", "tesla2.jpg", "tesla3.jpg"]
+  },
+  {
+    brand: "Audi",
+    fuel: "Petrol",
+    price: "$50,000",
+    specs: "Audi A6 2023, 2.0L TFSI, Quattro",
+    images: ["Audi1.jpg", "Audi2.jpg", "Audi3.jpg"]
+  },
+  {
+    brand: "Mercedes-Benz",
+    fuel: "Diesel",
+    price: "$60,000",
+    specs: "Mercedes-Benz E-Class 2023, 2.0L, 4MATIC",
+    images: ["benz1.jpg", "benz2.jpg", "benz3.jpg"]
+  },
+  {
+    brand: "Ford",
+    fuel: "Petrol",
+    price: "$42,000",
+    specs: "Ford Mustang 2023, 5.0L V8, Manual",
+    images: ["ford1.jpg", "ford2.jpg", "ford3.jpg"]
+  },
+  {
+    brand: "Jeep",
+    fuel: "Petrol",
+    price: "$50,000",
+    specs: "Jeep Wrangler 2023, 3.6L V6, 4WD",
+    images: ["Jeep1.jpg", "Jeep2.jpg", "Jeep3.jpg", "Jeep4.jpg"]
+  },
+  {
+    brand: "GLE",
+    fuel: "Petrol",
+    price: "$42,000",
+    specs: "Mercedes GLE 2023, 3.0L Turbo, 4MATIC",
+    images: ["gle1.jpg", "gle2.jpg", "gle3.jpg"]
+  },
+  {
+    brand: "Crown",
+    fuel: "Petrol",
+    price: "$42,000",
+    specs: "Toyota Crown 2023, 2.5L Hybrid, AWD",
+    images: ["crown1.jpg", "crown2.jpg", "crown3.jpg"]
+  },
+  {
+    brand: "Markx",
+    fuel: "Petrol",
+    price: "$42,000",
+    specs: "Toyota Mark X 2023, 2.5L V6, RWD",
+    images: ["markx1.jpg", "markx2.jpg", "markx3.jpg"]
+  }
+];
+
+  function renderCars() {
+    const brand = document.getElementById("brandFilter").value;
+    const fuel = document.getElementById("fuelFilter").value;
+    const carList = document.getElementById("carList");
+    carList.innerHTML = "";
+
+    const filteredCars = cars.filter(car =>
+      (!brand || car.brand === brand) &&
+      (!fuel || car.fuel === fuel)
+    );
+
+    filteredCars.forEach((car, index) => {
+      const card = document.createElement("div");
+      card.className = "car-card";
+
+      const slideshow = document.createElement("div");
+      slideshow.className = "slideshow";
+
+      car.images.forEach((src, i) => {
+        const img = document.createElement("img");
+        img.src = src;
+        if (i === 0) img.classList.add("active");
+        slideshow.appendChild(img);
+      });
+
+      setInterval(() => {
+        const imgs = slideshow.querySelectorAll("img");
+        const active = slideshow.querySelector("img.active");
+        let next = [...imgs].indexOf(active) + 1;
+        active.classList.remove("active");
+        imgs[next % imgs.length].classList.add("active");
+      }, 3000);
+
+      const specs = document.createElement("div");
+      specs.className = "specs";
+      specs.textContent = car.specs;
+
+      const price = document.createElement("div");
+      price.className = "price";
+      price.textContent = car.price;
+
+      card.appendChild(slideshow);
+      card.appendChild(specs);
+      card.appendChild(price);
+      carList.appendChild(card);
+    });
+  }
+
+  document.getElementById("brandFilter").addEventListener("change", renderCars);
+  document.getElementById("fuelFilter").addEventListener("change", renderCars);
+
+  renderCars();
+</script>
+
+</body>
+</html>

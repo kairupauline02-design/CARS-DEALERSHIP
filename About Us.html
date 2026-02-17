@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+/* Base styles */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f0f2f5;
+  color: #333;
+}
+
+/* Header navigation */
+header {
+  background-color: #0d0d0d;
+  padding: 20px 40px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+header nav {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+header nav a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 17px;
+  transition: color 0.3s ease;
+}
+
+header nav a:hover {
+  color: #ff4e50;
+}
+
+/* About Us section */
+#about-us {
+  padding: 60px 20px;
+  background: linear-gradient(to right, #ffffff, #e6e9f0);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+#about-us h2 {
+  text-align: center;
+  font-size: 36px;
+  color: #222;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+#about-us h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: #ff4e50;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+#about-us p {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #444;
+  max-width: 800px;
+  margin: 0 auto 20px;
+  text-align: justify;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  header nav {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  #about-us {
+    padding: 40px 15px;
+  }
+
+  #about-us h2 {
+    font-size: 28px;
+  }
+
+  #about-us p {
+    font-size: 16px;
+  }
+}
+</style>
+<nav>
+ <header>
+      <a href="Cars.html">Cars</a>
+      <a href="Inventory.html">Inventory</a>
+      <a href="About Us.html">About Us</a>
+      <a href="Contact Us.html">Contact Us</a>
+      <a href="Purchases.html">Purchases</a>
+   </header>
+</nav>
+<body>
+   
+   <section id="about-us" style="padding: 40px; background-color: #f4f4f4; font-family: Arial, sans-serif;">
+  <div style="max-width: 800px; margin: auto;">
+    <h2 style="text-align: center; color: #333;">About Us</h2>
+    <p style="font-size: 18px; line-height: 1.6; color: #555;">
+      Welcome to <strong>DriveElite Motors</strong> — where passion meets performance. We’re not just a car dealership; we’re a team of auto enthusiasts committed to helping you find the perfect vehicle that fits your lifestyle, budget, and dreams.
+    </p>
+    <p style="font-size: 18px; line-height: 1.6; color: #555;">
+      With years of experience in the automotive industry, we’ve built a reputation for integrity, transparency, and personalized service. Every car in our showroom is handpicked, thoroughly inspected, and backed by our quality assurance promise.
+    </p>
+    <p style="font-size: 18px; line-height: 1.6; color: #555;">
+      Whether you're buying your first car, upgrading to a luxury ride, or searching for a reliable family vehicle, we’re here to guide you every step of the way. Our mission is simple: to make your car buying experience smooth, enjoyable, and unforgettable.
+    </p>
+    <p style="font-size: 18px; line-height: 1.6; color: #555;">
+      Shop with us and discover why thousands of satisfied customers trust DriveElite Motors — where your journey begins.
+    </p>
+  </div>
+</section>
+</body>
+</html>
